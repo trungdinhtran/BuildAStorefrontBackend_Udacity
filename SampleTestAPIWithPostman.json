@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "c4b4cc07-4c84-454c-a4a5-ba673c4263b4",
+		"name": "API Udacity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18995599"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "addNewUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Dinh\",\n    \"lastname\": \"Tran\",\n    \"username\": \"DinhTran\",\n    \"password\": \"dinhtran123\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/users/create"
+					},
+					"response": []
+				},
+				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"DinhTran\",\n    \"password\": \"dinhtran123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/users/authenticate"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:3000/users/3"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Dinh\",\n    \"lastname\": \"Tran Update\",\n    \"username\": \"DinhTranUpdate\",\n    \"password\": \"dinhtran1234\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/users/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

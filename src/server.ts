@@ -1,15 +1,24 @@
-import express, { Request, Response } from 'express'
-import bodyParser from 'body-parser'
+import express, { Application, Request, Response } from 'express';
+import bodyParser from 'body-parser';
 
-const app: express.Application = express()
-const address: string = "0.0.0.0:3000"
+import userRoutes from './handlers/user';
 
-app.use(bodyParser.json())
+const app: Application = express();
 
-app.get('/', function (req: Request, res: Response) {
-    res.send('Hello World!')
-})
+let port = 3000;
 
-app.listen(3000, function () {
-    console.log(`starting app on: ${address}`)
-})
+if (process.env.ENV === 'test') {
+  port = 3001;
+}
+
+const address = `127.0.0.1:${port}`;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+userRoutes(app);
+
+app.listen(port, () => {
+  console.info(`Express is listening at http://${address}`);
+});
+
+export default app;

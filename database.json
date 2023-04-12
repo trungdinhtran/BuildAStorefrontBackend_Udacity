@@ -1,0 +1,18 @@
+{
+    "dev": {
+      "driver": "pg",
+      "host": "127.0.0.1",
+      "port": 5432,
+      "database": "udacity_storefront_backend",
+      "user": "dinhtran",
+      "password": "123456"
+    },
+    "test": {
+      "driver": "pg",
+      "host": "127.0.0.1",
+      "port": 5432,
+      "database": "udacity_storefront_backend_test",
+      "user": "dinhtran",
+      "password": "123456"
+    }
+  }
