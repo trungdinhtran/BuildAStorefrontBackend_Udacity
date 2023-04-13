@@ -32,7 +32,7 @@ const create = async (req: Request, res: Response) => {
   }
 };
 
-const read = async (req: Request, res: Response) => {
+const show = async (req: Request, res: Response) => {
   try {
     const id = req.params.id as unknown as number;
 
@@ -87,8 +87,8 @@ const deleteProduct = async (req: Request, res: Response) => {
 
 export default function productRoutes(app: Application) {
   app.get('/products', getAllProduct);
-  app.post('/product', verifyToken, create);
-  app.get('/product/:id', read);
+  app.post('/product/create', verifyToken, create);
+  app.get('/product/:id', show);
   app.put('/product/:id', verifyToken, update);
   app.delete('/product/:id', verifyToken, deleteProduct);
 }

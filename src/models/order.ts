@@ -23,7 +23,7 @@ export class OrderStore {
       const { rows } = await connection.query(sql);
       const orderProductsSql =
         'SELECT product_id, quantity FROM order_details WHERE id=($1)';
-      const orders = [];
+      const orders: Order[] = [];
       for (const order of rows) {
         const { rows: orderProductRows } = await connection.query(orderProductsSql, [order.id]);
         orders.push({
@@ -45,10 +45,10 @@ export class OrderStore {
       const sql = 'INSERT INTO orders (user_id, status) VALUES($1, $2) RETURNING *';
       const connection = await Client.connect();
       const { rows } = await connection.query(sql, [user_id, status]);
-      const order = rows[0];
+      const order: Order = rows[0];
       const orderProductsSql =
         'INSERT INTO order_details (id, product_id, quantity) VALUES($1, $2, $3) RETURNING product_id, quantity';
-      const orderProducts = [];
+      const orderProducts: OrderProduct[] = [];
       for (const product of products) {
         const { product_id, quantity } = product;
         const { rows } = await connection.query(orderProductsSql, [order.id, product_id, quantity]);
@@ -85,6 +85,28 @@ export class OrderStore {
     }
   }
 
+  async readByUserId(id: number): Promise<Order []> {
+    try {
+        const connection = await Client.connect();
+        const sql = 'SELECT * FROM orders WHERE user_id=($1)';
+        const { rows } = await connection.query(sql, [id]);
+        const orderProductsSql =
+          'SELECT product_id, quantity FROM order_details WHERE id=($1)';
+        const orders: Order[] = [];
+        for (const order of rows) {
+          const { rows: orderProductRows } = await connection.query(orderProductsSql, [order.id]);
+          orders.push({
+            ...order,
+            products: orderProductRows,
+          });
+        }
+        connection.release();
+        return orders;
+      } catch (err) {
+        throw new Error(`Could not get orders. ${err}`);
+      }
+  }
+
   async update(id: number, orderData: OrderInfo): Promise<Order> {
     const { products, status, user_id } = orderData;
 
@@ -95,7 +117,7 @@ export class OrderStore {
       const order = rows[0];
       const orderProductsSql =
         'UPDATE order_details SET product_id = $1, quantity = $2 WHERE id = $3 RETURNING product_id, quantity';
-      const orderProducts = [];
+      const orderProducts: OrderInfo[] = [];
 
       for (const product of products) {
         const { rows } = await connection.query(orderProductsSql, [

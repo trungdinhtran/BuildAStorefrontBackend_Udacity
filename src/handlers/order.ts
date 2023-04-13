@@ -61,6 +61,24 @@ const show = async (req: Request, res: Response) => {
   }
 };
 
+const showByUserId = async (req: Request, res: Response) => {
+    try {
+      const id = req.params.id as unknown as number;
+  
+      if (!id) {
+        res.status(400);
+        res.send('Missing required parameter :id.');
+        return false;
+      }
+  
+      const order: Order[] = await OrderStoreInstance.readByUserId(id);
+      res.json(order);
+    } catch (e) {
+      res.status(400);
+      res.json(e);
+    }
+  };
+
 const update = async (req: Request, res: Response) => {
   try {
     const id = req.params.id as unknown as number;
@@ -112,6 +130,7 @@ export default function orderRoutes(app: Application) {
   app.get('/orders', verifyToken, getAllOrders);
   app.post('/order/create', verifyToken, create);
   app.get('/order/:id', verifyToken, show);
+  app.get('/order/current-orders/:id', verifyToken, showByUserId);
   app.put('/order/:id', verifyToken, update);
   app.delete('/order/:id', verifyToken, deleteOrder);
 }

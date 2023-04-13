@@ -9,7 +9,8 @@
     "test": "export ENV=test && db-migrate up && npm run build && npm run jasmine && db-migrate reset",
     "start": "nodemon src/server.ts",
     "prettier": "prettier --config .prettierrc --write src/**/*.ts ",
-    "lint": "eslint  src/**/*.ts  "
+    "lint": "eslint  src/**/*.ts  ",
+    "create-db": "db-migrate up"
   },
   "author": "Dinh Tran",
   "license": "ISC",

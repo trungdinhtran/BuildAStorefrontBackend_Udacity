@@ -210,11 +210,26 @@
 				{
 					"name": "addNewProduct",
 					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Vest\",\n    \"price\": 888\n}",
+							"raw": "{\n    \"name\": \"Suit\",\n    \"price\": 888\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -222,7 +237,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/product",
+							"raw": "http://127.0.0.1:3000/product/create",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -232,7 +247,8 @@
 							],
 							"port": "3000",
 							"path": [
-								"product"
+								"product",
+								"create"
 							]
 						}
 					},
@@ -331,8 +347,37 @@
 				{
 					"name": "getAllOrders",
 					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
 					},
 					"response": []
 				},
@@ -431,6 +476,45 @@
 					"response": []
 				},
 				{
+					"name": "getCurrentOrderByUserId",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/order/current-orders/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"current-orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "deleteOrders",
 					"request": {
 						"auth": {
@@ -451,7 +535,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3000/order/5",
+							"raw": "http://127.0.0.1:3000/order/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -462,7 +546,7 @@
 							"port": "3000",
 							"path": [
 								"order",
-								"5"
+								"1"
 							]
 						}
 					},
