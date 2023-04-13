@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "jasmine": "jasmine",
-    "test": "npm run build && npm run jasmine",
+    "test": "export ENV=test && db-migrate up && npm run build && npm run jasmine && db-migrate reset",
     "start": "nodemon src/server.ts",
     "prettier": "prettier --config .prettierrc --write src/**/*.ts ",
     "lint": "eslint  src/**/*.ts  "
@@ -16,6 +16,7 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.19.0",
+    "cross-env": "^7.0.3",
     "db-migrate": "^0.11.13",
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^16.0.3",
@@ -25,8 +26,10 @@
     "supertest": "^6.3.3"
   },
   "devDependencies": {
+    "@ert78gb/jasmine-ts": "^0.3.2",
     "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.17",
+    "@types/jasmine": "^4.0.3",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "^18.14.1",
     "@types/pg": "^7.14.7",
@@ -35,6 +38,9 @@
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^3.6.4",
+    "jasmine-spec-reporter": "^6.0.0",
+    "jasmine-ts": "^0.3.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.5.1",
     "ts-node": "^10.9.1",
