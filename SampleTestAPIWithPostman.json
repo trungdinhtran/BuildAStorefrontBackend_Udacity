@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "c4b4cc07-4c84-454c-a4a5-ba673c4263b4",
 		"name": "API Udacity",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18995599"
 	},
 	"item": [
@@ -10,11 +10,56 @@
 			"name": "User",
 			"item": [
 				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"DinhTran\",\n    \"password\": \"dinhtran123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/user/authenticate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "getAllUser",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://127.0.0.1:3000/users"
+						"url": {
+							"raw": "http://127.0.0.1:3000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
@@ -32,41 +77,21 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:3000/users/create"
-					},
-					"response": []
-				},
-				{
-					"name": "authenticate",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"DinhTran\",\n    \"password\": \"dinhtran123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://127.0.0.1:3000/users/authenticate"
-					},
-					"response": []
-				},
-				{
-					"name": "deleteUser",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": {
-								"key": "Authorization",
-								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE"
-							}
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": "http://127.0.0.1:3000/users/3"
+						"url": {
+							"raw": "http://127.0.0.1:3000/user/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"create"
+							]
+						}
 					},
 					"response": []
 				},
@@ -75,10 +100,18 @@
 					"request": {
 						"auth": {
 							"type": "apikey",
-							"apikey": {
-								"key": "Authorization",
-								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE"
-							}
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
 						},
 						"method": "PUT",
 						"header": [],
@@ -91,7 +124,347 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:3000/users/1"
+						"url": {
+							"raw": "http://127.0.0.1:3000/user/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/user/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "getAllProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Vest\",\n    \"price\": 888\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/product",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Suit\",\n    \"price\": 888\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/product/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/product/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "getAllOrders",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "addNewProduct",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"products\": [\n        {\n            \"product_id\": 1,\n            \"quantity\": 4\n        }\n    ],\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/order/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrders",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"products\": [\n        {\n            \"product_id\": 1,\n            \"quantity\": 6\n        }\n    ],\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/order/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOrders",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJ1c2VybmFtZSI6IkRpbmggVHJhbiIsImZpcnN0bmFtZSI6IlRyYW4iLCJsYXN0bmFtZSI6IkRpbmggIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDA5JHphVXFuTkJ0VDMweDU1N092blZ5R09UUmFwaVh0S1psUk5NelVMY3d6a1JDZmhVdjUvVEJPIn0sImlhdCI6MTY4MTAwNTQ1Mn0.z0JGp1A1Z5V84wnxFvDWllT7_A3l99x-BCZ3AY-r8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/order/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"order",
+								"5"
+							]
+						}
 					},
 					"response": []
 				}

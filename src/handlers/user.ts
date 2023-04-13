@@ -88,7 +88,7 @@ const deleteUser = async (req: Request, res: Response) => {
       return false;
     }
     await userStore.delete(id);
-    res.send(`User with id ${id} successfully deleted.`);
+    res.send(`User is delete successfully.`);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -117,9 +117,9 @@ const authenticate = async (req: Request, res: Response) => {
 
 export default function userRoutes(app: Application) {
   app.get('/users', getAll);
-  app.post('/users/create', create);
-  app.get('/users/:id', show);
-  app.put('/users/:id', verifyToken, update);
-  app.delete('/users/:id', verifyToken, deleteUser);
-  app.post('/users/authenticate', authenticate);
+  app.post('/user/create', create);
+  app.get('/user/:id', show);
+  app.put('/user/:id', verifyToken, update);
+  app.delete('/user/:id', verifyToken, deleteUser);
+  app.post('/user/authenticate', authenticate);
 }
